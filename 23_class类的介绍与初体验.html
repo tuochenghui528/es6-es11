@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class类的介绍和初体验</title>
+</head>
+<body>
+    <script>
+        /**
+         * ES6提供了更接近传统语言的写法，引入了class(类)这个概念，作为对象的模板。通过class关键字，可以定义类。基本上ES6的class可以看作只是一个语法糖，它的绝大部分功能，ES5都可以做到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法而已。
+         * 1) class声明类
+         * 2) constructor定义构造函数初始化
+         * 3) extends继承父类
+         * 4) super调用父级构造方法
+         * 5) static 定义静态方法和属性
+         * 6) 父类方法可以重写
+        */
+       
+
+        //ES5定义类 一手机类为例
+        function Phone1(brand, price) {
+            this.brand = brand;
+            this.price = price;
+        }
+        //添加方法
+        Phone1.prototype.call = function() {
+            console.log('我可以打电话!!!');
+        }
+        //实例化对象
+        const Huawei = new Phone1('华为', 5999);
+        Huawei.call();//我可以打电话!!!
+        console.log(Huawei);//Phone1 {brand: '华为', price: 5999} 原型上有call方法
+
+        //ES6定义类
+        class Phone2 {
+            //构造函数 名字固定不能修改 实例化的时候调用
+            constructor(brand, price) {
+                this.brand = brand;
+                this.price = price;
+            }
+            //定义方法
+            call() {
+                console.log('我可以打电话!!!');
+            }
+        }
+        let xiaomi11 = new Phone2('小米11', '3999');
+        console.log(xiaomi11);//Phone2 {brand: '小米11', price: '3999'} 原型上有call方法
+    </script>
+</body>
+</html>

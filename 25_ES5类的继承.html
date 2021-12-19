@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES5类的继承</title>
+</head>
+<body>
+    <script>
+        //手机类
+        function Phone(brand, price) {
+            this.brand = brand;
+            this.price = price;
+        }
+        Phone.prototype.call = function() {
+            console.log('我可以打电话!!!');
+        }
+
+        //智能手机类
+        function SmartPhone(brand, price, color, size) {
+            Phone.call(this, brand, price);
+            this.color = color;
+            this.size = size;
+        }
+        //设置子级的构造函数原理
+        SmartPhone.prototype = new Phone;
+        SmartPhone.prototype.constructor = SmartPhone;//指向SmartPhone的原型
+
+        //声明子类的函数
+        SmartPhone.prototype.photo = function() {
+            console.log('我可以拍照');
+        }
+        const chuizi = new SmartPhone('锤子', 2499, '黑色', '5.5inch');
+        console.log(chuizi);//SmartPhone {brand: '锤子', price: 2499, color: '黑色', size: '5.5inch'}
+    </script>
+</body>
+</html>

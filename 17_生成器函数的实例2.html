@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数实例2</title>
+</head>
+<body>
+    <script>
+        //模拟获取  用户数据  订单数据  商品数据 后面的以来前面的数据
+        function getUsers() {
+            setTimeout(() => {
+                let data = '用户数据';
+                //调用next方法 并且将数据传入
+                interator.next(data);//第二次调用next data参数将作为第一个yield的返回值
+            },1000)
+        }
+        function getOrders() {
+            setTimeout(() => {
+                let data = '订单数据';
+                interator.next(data);
+            },1000)
+        }
+        function getGoods() {
+            setTimeout(() => {
+                let data = '商品数据';
+                interator.next(data);
+            },1000)
+        }
+
+
+        function * gen() {
+            let users = yield getUsers();
+            console.log(users);
+            let orders = yield getOrders();
+            console.log(orders);
+            let goods = yield getGoods();
+            console.log(goods);
+        }
+        let interator = gen();
+        interator.next();
+
+    </script>
+</body>
+</html>

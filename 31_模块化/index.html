@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块化</title>
+</head>
+<body>
+    <!-- 
+        ES6之前推出的模块化规范产品
+            1)CommonJS => NodeJS Browserify
+            2)AMD => requireJS
+            3)CMD => seaJS
+        ES6的模块化有export和import
+    -->
+    <script type="module">
+    /**
+     * import * as xxx from xxx
+     *  是导入所有as后面的是给起一个别名
+     *  如果用的是默认到出export default 导入后需加default
+     *   暴露的方法有三种  分别暴露  统一暴露  默认暴露
+     * 
+     *    导入的方法有  通用导入  解构赋值  简单形式(只只针对默认暴露 export default{})
+    */
+        /**
+         * 通用导入
+        */
+        //引入m1.js模块内容
+        import * as m1 from './src/js/m1.js';
+        m1.teach();//我可以逗大家笑
+        //引入m2.js模块内容
+        import * as m2 from './src/js/m2.js';
+        m2.play();//我可以演电视剧
+        //引入m3.js模块内容
+        import * as m3 from './src/js/m3.js';
+        m3.default.change();//我们可以改变你
+
+        /**
+         * 解构赋值
+        */
+       import {name, teach} from './src/js/m1.js';
+       import {name as abcd, play} from './src/js/m2.js';//因为name会重名所以起个别名abcd
+       import {default as m33} from './src/js/m3.js';
+       console.log(name,abcd,m33);//小沈阳 宋小宝 {school: '清华', change: ƒ}
+       teach();//我可以逗大家笑
+       play();//我可以演电视剧
+       m33.change();//我们可以改变你
+
+       /**
+        * 简便形式  针对默认暴露 export default
+       */
+      import m333 from './src/js/m3.js';
+      console.log(m333);//{school: '清华', change: ƒ}
+      m333.change();//我们可以改变你
+
+    </script>
+</body>
+</html>

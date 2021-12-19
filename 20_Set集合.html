@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set集合</title>
+</head>
+<body>
+    <script>
+        //ES6提供了新的数据结构Set（集合）。它类似于数组，但成员的值都是唯一的，集合实现了interator接口，所以可以使用【扩展运算符】和【for...of...】进行遍历
+
+        //声明一个 set
+        let s = new Set();
+        let s2 = new Set(['小沈阳', '宋小宝', '王小利', '小沈阳']);
+        console.log(s2);//Set(3) {'小沈阳', '宋小宝', '王小利'} 只有一个小沈阳  会自动去重
+
+        //元素个数
+        console.log(s2.size);//3
+        //添加新元素
+        s2.add('赵四');
+        console.log(s2);//Set(4) {'小沈阳', '宋小宝', '王小利', '赵四'}
+        //删除元素
+        s2.delete('赵四');
+        console.log(s2);//Set(3) {'小沈阳', '宋小宝', '王小利'}
+        //检测
+        console.log(s2.has('小沈阳'));//true
+        //清空
+        s2.clear();
+        console.log(s2);//Set(0) {size: 0}
+
+    </script>
+</body>
+</html>

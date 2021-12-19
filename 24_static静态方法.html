@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类中的静态方法</title>
+</head>
+<body>
+    <script>
+        //ES5中
+        function Phone1() {
+
+        }
+        Phone1.name = 'onePlus';
+        Phone1.prototype.size = '6.6';
+        Phone1.change = function() {
+            console.log('我可以改变世间!!!');
+        }
+        const onplus = new Phone1();
+        console.log(onplus);//Phone1 {}
+        console.log(onplus.name);//undefined
+        console.log(onplus.size);//6.6  原型上的方法才可以是实例化出来的对象的方法
+
+        //ES6
+        class Phone2 {
+            //静态属性
+            static name = '手机';
+            static change() {
+                console.log('我可以改变世间!!!');
+            }
+        }
+        let nokia = new Phone2();
+        console.log(nokia.name);//undefined
+        console.log(Phone2.name);//手机
+    </script>
+</body>
+</html>

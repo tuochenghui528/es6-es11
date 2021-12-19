@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6的对象方法扩展</title>
+</head>
+<body>
+    <script>
+        //1. Object.is 判断两个值是否完全相等
+        /**
+         * Object.is类似与===全等  区别点就是NaN===NaN false; Object.is(NaN, NaN); true;
+         * 我们知道NaN跟任意数比都是不相等的
+        */
+        console.log(Object.is(120, 121));//false
+        console.log(Object.is(120, 120));//true
+        console.log(Object.is(NaN, NaN));//true
+
+        //2.Object.assign 对象的合并 如果对象的属性是基本类型则可理解为深拷贝  对象属性是引用类型则为浅拷贝 拷贝的是引用地址
+        /**
+         * Object.assgin与赋值的区别就是 它对属性为基本类型的对象有深拷贝的功能 合并后改变新对象属性的值不会影响旧对象  但是赋值会改变
+        */
+        const obj1 = {
+            name: 'kobe',
+            height: '1.9m'
+        };
+        const obj2 = {
+            name: 'James',
+            sex: 'man'
+        }
+        console.log(Object.assign(obj1, obj2));//{name: 'James', height: '1.9m', sex: 'man'}
+    </script>
+</body>
+</html>

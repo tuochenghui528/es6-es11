@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol的基本使用</title>
+</head>
+<body>
+    <script>
+        //1.创建Symbol
+        let s = Symbol();
+        console.log(s, typeof s);//Symbol() 'symbol'
+        let s2 = Symbol('尚硅谷');
+        console.log(s2);//Symbol(尚硅谷)
+        let s3 = Symbol('尚硅谷');
+        s2 === s3;//false
+
+        //Symbol.for创建
+        let s4 = Symbol.for('尚硅谷');
+        console.log(s4);//Symbol(尚硅谷)
+
+        //不能与其他数据进行运算
+        // let result = s + 100;
+        // let result = s > 100;
+        // let result = s + s;
+
+        /**
+            数据类型：undefined string symbol object null number boolean
+            object中又function array Date ...   
+        */
+
+        //2.symbol创建对象属性
+        //向对象中添加方法 up down
+        /**
+        如果要向game对象中添加up 和 down的方法，但是不知道这个对象中是否存在up和down的属性 如果存在的话会被复写，这时候就用到了symbol
+        */
+        let game = {
+            up: '上',
+            down: '下'
+        }
+        let methods = {
+            up: Symbol(),
+            down: Symbol()
+        }
+        game[methods.up] = function() {
+            console.log('我可以向上')
+        }
+        game[methods.down] = function() {
+            console.log('我可以向下');
+        }
+        console.log(game);//{up: '上', down: '下', Symbol(): ƒ, Symbol(): ƒ}
+        game[methods.up]();//我可以向上
+        //另一种方法
+        let say = Symbol();
+        let youxi = {
+            name: "狼人杀",
+            [say]: function() {
+                console.log("我可以发言")
+            },
+            [Symbol('zibao')]: function() {
+                console.log('我可以自爆');
+            }
+        }
+        console.log(youxi);//{name: '狼人杀', Symbol(say): ƒ, Symbol(zibao): ƒ}
+        youxi[say]();//我可以发言
+    </script>
+</body>
+</html>

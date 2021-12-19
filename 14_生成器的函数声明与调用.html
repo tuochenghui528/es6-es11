@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器的函数声明和调用</title>
+</head>
+<body>
+    <script>
+        //生成器是ES6提供的一种异步编程的方案，语法行为与传统函数完全不通
+        //生成器其实就是一个特殊的函数
+        //原生的异步处理方法是回调 会造成回调地狱  生成器可以解决这种缺陷
+
+        //生成器的语法
+        function * gen() {//生成器里可以写yield 相当于把代码分隔为一块一块
+            console.log(123);
+            yield '一只没有耳朵';
+            yield '一只没有尾巴';
+            yield '真奇怪';
+        }
+        let interator = gen();
+        console.log(interator);//原型上有next()方法  是一个interator接口 可以直接调next()执行
+        interator.next();//123
+        console.log(interator.next());//{value: '一只没有尾巴', done: false}  调用next()对象返回的值
+        for(let v of gen()) {//因为gen()生成器上有interator迭代器的next()方法  所以可以用for...of
+            console.log(v);//'一只没有耳朵' '一只没有尾巴' '真奇怪'
+        }
+    </script>
+</body>
+</html>

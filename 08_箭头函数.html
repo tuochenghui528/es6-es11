@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数</title>
+</head>
+<body>
+  <script>
+    //es6中新增箭头函数
+    // let fn = function() {//正常定义函数
+      
+    // }
+
+    //箭头函数
+    let fn = (a, b) => {
+      return a + b;
+    }
+    
+    //箭头函数中实际是没有this的  它的this是静态的  是自己定义时所在作用域下的this 不能更改
+    window.name = '尚硅谷';
+    let getName = function() {
+      console.log(this.name);
+    }
+    let getName2 = () => {
+      console.log(this.name);
+    }
+    getName();//尚硅谷
+    getName2();//尚硅谷
+
+    const school = {
+      name: 'ATGUIGU'
+    }
+    //1.通过call修改this
+    getName.call(school);//ATGUIGU
+    getName2.call(school);//尚硅谷 箭头函数中的this并没有修改为school 还是指向声明时的作用域  window
+
+    //2.不能作为构造函数实例化对象
+    // let Person = (name, age) => {
+    //   this.name = name;
+    //   this.age = age;
+    // };
+    // let me = new Person('拓', 30);
+    // console.log(me);//Uncaught TypeError: Person is not a constructor  报错
+
+    //3.没有arguments变量(arguments是普通函数中保存实参的变量)
+    // let fn2 = function(a,b) {
+    //   console.log(arguments);
+    // }
+    // fn2(2,'拓')//Arguments(2) [2, '拓', callee: ƒ, Symbol(Symbol.iterator): ƒ]
+    // let fn2 = (a,b) => {
+    //   console.log(arguments);
+    // }
+    // fn2(2, '拓');//Uncaught ReferenceError: arguments is not defined
+
+    //4.箭头函数的简写
+     //1）省略小括号，当形参只有一个的时候
+     let add = n => {
+       return n + n;
+     }
+     console.log(add(9));//18
+     //2)省略花括号，当代码体只有一条语句的时候，此时return必须省略  语句的执行结果就是函数的返回值
+     let pow = n => {//正常写
+       return n * n;
+     }
+     console.log(pow(9));//81
+     let pow2 = n => n * n;
+     console.log(pow2(9));//81
+  </script>
+</body>
+</html>

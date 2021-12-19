@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6的数值扩展</title>
+</head>
+<body>
+    <script>
+        //1、Number.EPSILON是JavaScript表示的最小精度
+        //EPSILON属性的值接近于2.2204460492503130808472633361816E-16  二的负25次方
+        console.log(0.1+0.2 == 0.3);//false  因为计算机转换为二进制后计算 最后计算的值是0.30000000000000004
+
+        //2.二进制和八进制
+        let er = 0b1010;
+        let ba = 0o777;
+        let shi = 100;
+        let shiliu = 0xff;
+
+        //3.Number.isFinite 检测一个数值是否为有限数
+        console.log(Number.isFinite(100));//true
+        console.log(Number.isFinite('0'));false
+
+        //4.Number.isNaN 检测一个数值是否为NaN
+        console.log(Number.isNaN(123));//false
+        console.log(Number.isNaN(NaN));//true
+
+        //5.Number.parseInt Number.parseFloat字符串转整数(数字开头)
+        console.log(Number.parseInt('528shenqi'));//528
+        console.log(Number.parseFloat('3.1415926商会大厦'));//3.1415926
+
+        //6.Number.isInteger判断一个数是否为整数
+        console.log(Number.isInteger(5));//true
+        console.log(Number.isInteger(2.5));//false
+
+        //7.Math.trunc 将数字的小数部分抹掉
+        console.log(Math.trunc(3.2));//3
+
+        //8.Math.sign 判断一个数到底为正数 零 负数
+        console.log(Math.sign(100));//1
+        console.log(Math.sign(0));//0
+        console.log(Math.sign(-20));//-1
+    </script>
+</body>
+</html>

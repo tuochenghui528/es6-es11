@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reset参数</title>
+</head>
+<body>
+    <script>
+        //ES6 引入reset参数，用于获取函数的实参，用来代替arguments
+
+        //ES5 获取实参的方式
+        function date() {
+            console.log(arguments);//Arguments(3) ['白芷', '阿娇', '思慧', callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        }
+        date('白芷','阿娇','思慧');
+
+        //reset参数 如果是多个参数的时候 reset参数要放在最后一个
+        function date1(...args) {
+            console.log(args);//数组  [1, 2, 3, 4, 5]
+        }
+        date1(1,2,3,4,5);
+    </script>
+</body>
+</html>

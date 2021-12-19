@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES7的新特性includes和幂运算</title>
+</head>
+<body>
+    <script>
+        /**
+         * ES7新增两个特性
+         *  1）Array.includes判断数组中是否存在元素
+         *  2）**幂运算  相当于Math.pow();
+        */
+        const mingzhu = ['西游记', '三国', '红楼梦', '水浒'];
+        //判断
+        console.log(mingzhu.includes('西游记'));//true
+        console.log(mingzhu.includes('金瓶梅'));//false
+
+        console.log(2**10);//1024
+        console.log(Math.pow(2, 10));//1024
+    </script>
+</body>
+</html>

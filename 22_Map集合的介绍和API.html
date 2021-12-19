@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map集合的介绍与API</title>
+</head>
+<body>
+    <script>
+        /**
+         * ES6提供了Map数据结构。它类似与对象，也是键值对的集合。但是"键"的范围不限于字符串，各种类型的值（包括对象）都可以当作键。Map也实现了iterator接口，所以可以使用【扩展运算符】和【for...of...】进行遍历。
+         * 
+        */
+
+        //声明Map
+        let m = new Map();
+
+        //添加元素
+        m.set('name', '小沈阳');
+        m.set('change', function() {
+            console.log('我们可以改变你们！！！');
+        });
+        m.set('key',['北京', '上海', '深圳']);
+        console.log(m);//Map(3) {'name' => '小沈阳', 'change' => ƒ, 'key' => Array(3)}
+        
+        //size
+        console.log(m.size);//3
+        //删除
+        m.delete('name');
+        console.log(m);//Map(2) {'change' => ƒ, 'key' => Array(3)}
+        //获取
+        console.log(m.get('key'));//['北京', '上海', '深圳']
+        //清空
+        m.clear();
+        console.log(m);//Map(0) {size: 0}
+
+        for(v of m) {
+            console.log(v);//['change', ƒ]  ['key', Array(3)]
+        }
+    </script>
+</body>
+</html>

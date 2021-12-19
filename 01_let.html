@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let</title>
+</head>
+<body>
+  <script>
+    /*
+      1.let是用来声明变量的
+    */
+    let a;
+    let b,c;//声明多个
+    let d = 10;
+    let e = 12, f = 13, g = 14;//声明多个并付初始值
+
+    /*
+      2.不能重复声明
+    */
+    // let star = '罗志祥';
+    // let star = '小猪'; Uncaught SyntaxError: Identifier 'star' has already been declared
+
+    /*
+      3.块儿级作用域  全局，函数，eval
+    */
+    //if else  while  for都是代码块级
+    // {
+    //   let girl = '周扬青'
+    // }
+    // console.log(girl);Uncaught ReferenceError: girl is not defined
+    // if (true) {
+    //   let girl = '周扬青';
+    // }
+    // console.log(girl);Uncaught ReferenceError: girl is not defined
+
+    /*
+      4.不存在变量提升
+    */
+    // console.log(song) //undefined var定义变量提升的表现 如果是let则会报错
+    // var song = '恋爱达人'; 
+    //console.log(song) //Uncaught ReferenceError: Cannot access 'song' before initialization
+    //let song = '恋爱达人';
+
+    /*
+      5.不影响作用域链
+    */
+    {
+      let school = '尚硅谷';
+      function fn() {
+        console.log(school);//尚硅谷  可以沿着作用域链向上走
+      }
+      fn();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器自定义遍历数据</title>
+</head>
+<body>
+    <script>
+        /**
+         * 需求：需要遍历banji这个对象并且返回stus中的元素
+        */
+       //声明一个对象
+       const banji = {
+           name: "终极一班",
+           stus: [
+               "xiaoming",
+               "xiaoning",
+               "xiaotian",
+               "knigint"
+           ],
+           [Symbol.iterator]() {
+               let index = 0;
+               let _this = this;
+             return {
+                 next: function() {
+                    if (index < _this.stus.length) {
+                        const result = {value: _this.stus[index], done: false}
+                        index++;
+                        return result;
+                    } else {
+                        return {value: undefined, done: true};
+                    }
+                 }
+             }
+           }
+       }
+       //遍历这个对象
+       for (let v of banji) {
+            console.log(v);//"xiaoming","xiaoning", "xiaotian","knigint"
+       }
+    </script>
+</body>
+</html>

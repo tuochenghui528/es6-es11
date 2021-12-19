@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值</title>
+</head>
+<body>
+    <script>
+        /**
+         * 数组的解构赋值
+        */
+       const F4 = ['小沈阳', '赵四', '刘能', '宋小宝'];
+       //let [xiao, zhao, liu, song] = F4;
+       //console.log(xiao, zhao, liu, song);//小沈阳 赵四 刘能 宋小宝
+       let [xiao, liu, song] = F4;
+       console.log(xiao, liu, song);//小沈阳 赵四 刘能
+
+       /**
+        * 对象的解构
+       */
+      const player = {
+          name: 'James',
+          age: '37',
+          baskboar: function() {
+              console.log('我可以打篮球');
+          }
+      }
+      const {name} = player;
+      console.log(name);//James
+      const {baskboar} = player;
+      baskboar();//我可以打篮球
+
+    </script>
+</body>
+</html>

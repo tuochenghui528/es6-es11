@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6类中的getter和setter</title>
+</head>
+<body>
+    <script>
+        //get和set
+        class Phone {
+            get price() {//当作一个属性来用
+                console.log('价格属性被读取了!!!');//价格属性被读取了!!!
+                return 'i love you'
+            }
+            set price(value) {
+                console.log('价格被属性修改了');
+            }
+        }
+        //实例化类
+        const s = new Phone();
+        console.log(s.price);//i love you price中的返回值作为s.price的值
+        s.price = 'free';//价格被属性修改了  一定是赋值 不能s.price('free') 因为不是函数是属性
+    </script>
+</body>
+</html>

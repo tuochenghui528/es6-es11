@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子类对父类方法的重写</title>
+</head>
+<body>
+    <script>
+        //目前如果在子类中重写了父类的方法发 调用的一定是子类的  没办法调用父类中的同名方法
+        //父类
+        class Phone {
+            constructor(brand, price) {
+                this.brand = brand;
+                this.price = price;
+            }
+            call() {
+                console.log('我可以打电话!!!');
+            }
+        }
+        //子类
+        class SmartPhone extends Phone {
+            constructor(brand, price, color, size) {
+                super(brand, price);//初始化父类中的constructor 相当于ES5中的Phone.call(this, brand, price);
+                this.color = color;
+                this.size = size;
+            }
+            photo() {
+                console.log('我可以拍照!!!');
+            }
+            //重写父类方法
+            call() {
+                console.log('我可以视频通话!!!');
+            }
+        }
+        const xiaomi = new SmartPhone('小米', '3999', '黑色', '6.6inch');
+        console.log(xiaomi);//{brand: '小米', price: '3999', color: '黑色', size: '6.6inch'}
+        xiaomi.call();//我可以视频通话!!!
+        xiaomi.photo();//我可以拍照!!!
+    </script>
+</body>
+</html>
