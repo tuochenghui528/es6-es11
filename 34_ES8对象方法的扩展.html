@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES8对象方法的扩展</title>
+</head>
+<body>
+    <script>
+        //声明对象
+        const school = {
+            name: '清华大学',
+            cities: ['北京', '上海', '深圳'],
+            xueke: ['前端', 'Java', '大数据', '运维']
+        } 
+        //获取对象所有的键
+        console.log(Object.keys(school));//['name', 'cities', 'xueke']
+        
+        //获取对象所有的值
+        console.log(Object.values(school));//['清华大学', Array(3), Array(4)]
+    </script>
+</body>
+</html>

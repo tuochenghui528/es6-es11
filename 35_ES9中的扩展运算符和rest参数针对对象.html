@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES9中的扩展运算符和rest参数  针对对象</title>
+</head>
+<body>
+    <script>
+        //ES9中的rest参数  针对对象
+        function connect({...args}) {//一定要有{}  如果没有{}则成ES6中的rest参数了 打印出来是[{host: '127.0.0.1', port: 3006, username: 'root', password: 'root', type: 'master'}]
+            console.log(args);//{host: '127.0.0.1', port: 3006, username: 'root', password: 'root', type: 'master'}
+        }
+        connect({
+            host: '127.0.0.1',
+            port: 3006,
+            username: 'root',
+            password: 'root',
+            type: 'master'
+        })
+
+        //ES9中的扩展对象
+        const one = {
+            name: '清华大学'
+        }
+        const two = {
+            cities: ['北京', '上海', '深圳']
+        }
+        console.log({...one, ...two});//{name: '清华大学', cities: Array(3)}
+    </script>
+</body>
+</html>
